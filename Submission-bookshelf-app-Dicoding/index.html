@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookshelf App</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script defer src="main.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>Bookshelf App</h1>
+    </header>
+
+    <main>
+      <section>
+        <h2>Tambah Buku Baru</h2>
+        <form id="bookForm" data-testid="bookForm">
+          <div>
+            <label for="bookFormTitle">Judul</label>
+            <input id="bookFormTitle" type="text" required data-testid="bookFormTitleInput" />
+          </div>
+          <div>
+            <label for="bookFormAuthor">Penulis</label>
+            <input id="bookFormAuthor" type="text" required data-testid="bookFormAuthorInput" />
+          </div>
+          <div>
+            <label for="bookFormYear">Tahun</label>
+            <input id="bookFormYear" type="number" required data-testid="bookFormYearInput" />
+          </div>
+          <div>
+            <label for="bookFormIsComplete">Selesai dibaca</label>
+            <input id="bookFormIsComplete" type="checkbox" data-testid="bookFormIsCompleteCheckbox" />
+          </div>
+          <button id="bookFormSubmit" type="submit" data-testid="bookFormSubmitButton">
+            Masukkan Buku ke rak <span>Belum selesai dibaca</span>
+          </button>
+        </form>
+      </section>
+
+      <section>
+        <h2>Cari Buku</h2>
+        <form id="searchBook" data-testid="searchBookForm">
+          <label for="searchBookTitle">Judul</label>
+          <input id="searchBookTitle" type="text" data-testid="searchBookFormTitleInput" />
+          <button id="searchSubmit" type="submit" data-testid="searchBookFormSubmitButton">Cari</button>
+        </form>
+      </section>
+
+      <section>
+        <h2>Hasil dari Search :</h2>
+        <div id="searchResults" data-testid="searchResults"></div>
+      </section>      
+
+      <section>
+        <h2>Belum selesai dibaca</h2>
+        <div id="incompleteBookList" data-testid="incompleteBookList"></div>
+      </section>
+
+      <section>
+        <h2>Selesai dibaca</h2>
+        <div id="completeBookList" data-testid="completeBookList"></div>
+      </section>
+    </main>
+
+    <!-- Modal for editing book -->
+    <div id="editBookModal" class="modal">
+      <div class="modal-content">
+        <span id="closeModal" class="close">&times;</span>
+        <h2>Edit Buku</h2>
+        <form id="editBookForm">
+          <div>
+            <label for="editBookFormTitle">Judul</label>
+            <input id="editBookFormTitle" type="text" required />
+          </div>
+          <div>
+            <label for="editBookFormAuthor">Penulis</label>
+            <input id="editBookFormAuthor" type="text" required />
+          </div>
+          <div>
+            <label for="editBookFormYear">Tahun</label>
+            <input id="editBookFormYear" type="number" required />
+          </div>
+          <div>
+            <label for="editBookFormIsComplete">Selesai dibaca</label>
+            <input id="editBookFormIsComplete" type="checkbox" />
+          </div>
+          <button id="editBookFormSubmit" type="submit">Simpan Perubahan</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

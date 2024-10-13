@@ -1,0 +1,236 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header styles */
+header {
+  background-color: #3498db;
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* Main container */
+main {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+/* Section styles */
+section {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+section h2 {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 0.5rem;
+}
+
+/* Form styles */
+form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+label {
+  font-weight: 500;
+  color: #34495e;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+input[type="text"],
+input[type="number"] {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #bdc3c7;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+/* Book list styles */
+#incompleteBookList,
+#completeBookList,
+#searchResults {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+[data-bookid] {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+[data-bookid]:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+[data-testid="bookItemTitle"] {
+  font-size: 1.4rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+[data-testid="bookItemAuthor"],
+[data-testid="bookItemYear"] {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+[data-bookid] div {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+[data-bookid] button {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border-radius: 4px;
+}
+
+[data-testid="bookItemIsCompleteButton"] {
+  background-color: #2ecc71;
+}
+
+[data-testid="bookItemIsCompleteButton"]:hover {
+  background-color: #27ae60;
+}
+
+[data-testid="bookItemEditButton"] {
+  background-color: #f39c12;
+}
+
+[data-testid="bookItemEditButton"]:hover {
+  background-color: #d35400;
+}
+
+[data-testid="bookItemDeleteButton"] {
+  background-color: #e74c3c;
+}
+
+[data-testid="bookItemDeleteButton"]:hover {
+  background-color: #c0392b;
+}
+
+/* Modal styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  color: #7f8c8d;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close:hover {
+  color: #34495e;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  main {
+    padding: 0 1rem;
+  }
+
+  section {
+    padding: 1.5rem;
+  }
+
+  #incompleteBookList,
+  #completeBookList,
+  #searchResults {
+    grid-template-columns: 1fr;
+  }
+}
